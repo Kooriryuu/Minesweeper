@@ -223,6 +223,29 @@ public class GridTest {
     }
 
     @Test
+    public void testMiddleClickFlagsWithOneFlagged() {
+        board1.getCell(5).makeBomb();
+        board1.getCell(7).makeBomb();
+        for (Cell c: board1.getBoard()) {
+            c.findNearbyBombs();
+        }
+        board1.getCell(7).toggleFlag();
+        board1.openFirst(13);
+        board1.openFirst(6);
+        assertTrue(board1.middleClick(10));
+        assertTrue(board1.getCell(13).isOpen());
+        assertTrue(board1.getCell(14).isOpen());
+        assertTrue(board1.getCell(9).isOpen());
+        assertTrue(board1.getCell(11).isOpen());
+        assertFalse(board1.getCell(5).isOpen());
+        assertTrue(board1.getCell(6).isOpen());
+        assertTrue(board1.getCell(15).isOpen());
+        assertFalse(board1.getCell(7).isOpen());
+        assertTrue(board1.getCell(5).isFlagged());
+        assertTrue(board1.getCell(7).isFlagged());
+    }
+
+    @Test
     public void testMiddleClickOpensCells() {
         board1.getCell(5).makeBomb();
         board1.getCell(7).makeBomb();

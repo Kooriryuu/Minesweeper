@@ -3,7 +3,9 @@ package ui;
 import model.Cell;
 import model.Grid;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -11,6 +13,7 @@ public class Game {
     private int height = 4;
     private int width = 4;
     private int bombNum = 4;
+    private List<Long> scores;
 
     //EFFECTS: Initiate the program, making a Game
     public static void main(String[] args) {
@@ -20,6 +23,7 @@ public class Game {
     //EFFECTS: Change any settings or start a new game.
     public Game() {
         boolean ongoing = true;
+        scores = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         while (ongoing) {
             System.out.println("What would you like to do? start to start a game, dim to change dimensions"
@@ -43,6 +47,7 @@ public class Game {
     //MODIFIES: This, Grid
     //EFFECTS: Initiate a new game with a board of size height by width with the given number of bombs.
     private void gameStart() {
+        long start = System.nanoTime();
         board = new Grid(height, width, bombNum);
         int loc;
         System.out.println("Pick Starting Cell: ");
@@ -54,12 +59,28 @@ public class Game {
         board.generate(loc);
         openNormally(loc);
         display(false);
-        game(loc);
+        int state = game(loc);
+        long end = System.nanoTime();
+        if (state == 1) {
+            addTime(start, end);
+        }
+    }
+
+    //REQUIRES: A starting time
+    //MODIFIES: This
+    //EFFECTS: Adds time taken to clear to scores
+    private void addTime(long start, long end) {
+        System.out.println("Would you like to add your time? Y or N");
+        Scanner inp = new Scanner(System.in);
+        String response = inp.nextLine();
+        if (response.equals("Y")) {
+            scores.add(end - start);
+        }
     }
 
     //REQUIRES: A starting location
     //EFFECTS: Reads what move is being performed and acts accordingly. Update grid in console and check win or loss.
-    private void game(int loc) {
+    private int game(int loc) {
         Scanner inp = new Scanner(System.in);
         boolean inPlay = true;
         while (inPlay) {
@@ -67,22 +88,22 @@ public class Game {
             String choice = inp.nextLine();
             if (choice.equals("quit")) {
                 System.out.println("Exiting this game...");
-                return;
+                return -1;
             }
             try {
                 inPlay = makeMove(choice);
-                if (!inPlay) {
-                    System.out.println("You lose!");
-                }
                 display(!inPlay);
                 if (board.winCheck() && inPlay) {
                     System.out.println("You win!");
-                    return;
+                    return 1;
+                } else if (!inPlay) {
+                    System.out.println("You lose!");
                 }
             } catch (IndexOutOfBoundsException e) {
-                return;
+                return -1;
             }
         }
+        return -1;
     }
 
     //EFFECTS: Initiate the appropriate move at the appropriate cell

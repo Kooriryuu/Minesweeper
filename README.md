@@ -26,3 +26,5 @@ As a user, I want to be able to:
 - be able to see my best times.
 - be able to use the middle click function *that for some reason isn't always implemented*.
 - save my scores.
+- be able to change the grid dimensions
+- be able to end the game on fail. 

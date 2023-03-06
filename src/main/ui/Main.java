@@ -96,7 +96,7 @@ public class Main {
 
     //EFFECTS: Initiate the appropriate move at the appropriate cell
     private static boolean makeMove(String choice, Game g) throws IndexOutOfBoundsException {
-        if (!(choice.equals("open")||choice.equals("flag") || choice.equals("mid"))) {
+        if (!(choice.equals("open") || choice.equals("flag") || choice.equals("mid"))) {
             System.out.println("invalid choice");
             return true;
         }

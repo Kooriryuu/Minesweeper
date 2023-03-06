@@ -51,9 +51,11 @@ public class Cell {
     }
 
     //MODIFIES: This
-    //EFFECT: flags or unflags the cell
+    //EFFECT: flags or unflags the cell if the cell isn't open
     public void toggleFlag() {
-        this.flagged = !(this.flagged);
+        if (!open) {
+            this.flagged = !(this.flagged);
+        }
     }
 
     //EFFECT: checks if cell is flagged.

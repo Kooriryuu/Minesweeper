@@ -13,11 +13,17 @@ public class Player implements Writable {
     private String username;
     private Map<String, List<Long>> scores;
 
+    //REQUIRES: A string
+    //MODIFIES: This
+    //EFFECTS: Creates a player with the given string
     public Player(String name) {
         username = name;
         scores = new HashMap<>();
     }
 
+
+    //MODIFIES: This
+    //EFFECTS: Adds a score to the player
     public void addScore(int h, int w, long time) {
         String k = String.valueOf(h) + "x" + String.valueOf(w);
         if (scores.containsKey(k)) {
@@ -29,14 +35,17 @@ public class Player implements Writable {
         }
     }
 
+    //EFFECTS: Gets all scores of player
     public Map<String, List<Long>> getScores() {
         return scores;
     }
 
+    //EFFECTS: Gets username of player
     public String getName() {
         return this.username;
     }
 
+    //EFFECTS: Gets the corresponding times to a grid size
     public List<Long> getTimesForMap(String k) {
         if (scores.containsKey(k)) {
             return scores.get(k);
@@ -44,6 +53,8 @@ public class Player implements Writable {
         return new ArrayList<Long>();
     }
 
+    //MODIFIES: This
+    //EFFECTS: Set the player score
     public void setScores(Map<String, List<Long>> sc) {
         scores = sc;
     }

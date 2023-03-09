@@ -38,6 +38,23 @@ public class JsonWriterTest {
     }
 
     @Test
+    public void testWriterGameNotStartedWithFlags() {
+        try {
+            Game g = new Game();
+            g.getGrid().getCell(0).toggleFlag();
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyGame.json");
+            writer.open();
+            writer.write(g);
+            writer.close();
+            JsonReader reader = new JsonReader("./data/testWriterEmptyGame.json");
+            Game g2 = reader.read();
+            assertEquals(g, g2);
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+    @Test
     public void testWriterGameInProgressNoScores() {
         try {
             Game g = new Game();

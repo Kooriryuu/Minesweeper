@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 /**
  * Read data from a json file to build the previous game state.
  * Template provided at
+ * https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/blob/master/src/main/persistence/JsonReader.java
  */
 
 public class JsonReader {
@@ -39,6 +40,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
+    //EFFECTS: Read a jsonObject into a game
     private Game parseGame(JSONObject jsonObject) {
         Game g = new Game();
         g.setGrid(parseBoard(jsonObject.getJSONObject("board")));
@@ -59,6 +61,7 @@ public class JsonReader {
         return g;
     }
 
+    //EFFECTS: Read a jsonObject into a player
     private Player parsePlayer(JSONObject jsonObject) {
         Player p = new Player(jsonObject.getString("username"));
         Map<String, List<Long>> score = new HashMap<>();
@@ -76,6 +79,7 @@ public class JsonReader {
         return p;
     }
 
+    //EFFECTS: Read a JSONObject into a grid
     private Grid parseBoard(JSONObject jsonObject) {
         int h = jsonObject.getInt("height");
         int w = jsonObject.getInt("width");
@@ -94,6 +98,7 @@ public class JsonReader {
         return previous;
     }
 
+    //EFFECTS: Read a JSON object into a cell
     private Cell parseCell(JSONObject jsonObject) {
         Cell c = new Cell();
         if (jsonObject.getBoolean("isBomb")) {

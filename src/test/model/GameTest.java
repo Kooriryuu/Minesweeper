@@ -342,10 +342,17 @@ public class GameTest {
 
 
     @Test
-    public void testEqulsPlayerListFail(){
+    public void testEqualsPlayerListFail(){
         Game g2 = new Game();
         g2.setPlayer("h");
         g2.addTime("Y");
+        assertFalse(g.equals(g2));
+    }
+
+    @Test
+    public void testEqualsPlayerNameFail() {
+        Game g2 = new Game();
+        g2.setPlayer("h");
         assertFalse(g.equals(g2));
     }
 }

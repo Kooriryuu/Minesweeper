@@ -115,6 +115,10 @@ public class Game implements Writable {
         return width;
     }
 
+    //EFFECTS: Starts the timer
+    public void startTimer() {
+        start = System.nanoTime();
+    }
 
     //REQUIRES: An int greater or equal to 4
     //MODIFIES: This
@@ -185,7 +189,7 @@ public class Game implements Writable {
     //EFFECTS: If yes, add a score to the score list
     public void addTime(String s) {
         if (s.toUpperCase().equals("Y")) {
-            long totalTime = end - start;
+            long totalTime = end - start + deltaT;
             Player p;
             if (playerList.containsKey(name)) {
                 p = playerList.get(name);
@@ -196,6 +200,7 @@ public class Game implements Writable {
             p.addScore(height, width, totalTime);
         }
         start = 0;
+        deltaT = 0;
         end = 0;
     }
 

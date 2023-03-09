@@ -7,7 +7,7 @@
         "width": 4,
         "board": [
             {
-                "flagged": false,
+                "flagged": true,
                 "isBomb": false,
                 "open": false
             },

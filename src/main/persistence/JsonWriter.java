@@ -5,6 +5,12 @@ import org.json.JSONObject;
 
 import java.io.*;
 
+/*
+A class to be able to write files
+Template taken from
+https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/blob/master/src/main/persistence/JsonWriter.java
+ */
+
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;

@@ -333,13 +333,13 @@ public class GridTest {
     public void testEqualsBoardFail() {
         board3 = new Grid(4, 4, 4);
         board3.generate(2);
-        assertFalse(board1.equals(board2));
+        assertFalse(board1.equals(board3));
     }
 
     @Test
     public void testEqualsHeightFail() {
         board3 = new Grid(5, 4, 4);
-        assertFalse(board1.equals(board2));
+        assertFalse(board1.equals(board3));
     }
 
     @Test
@@ -351,14 +351,13 @@ public class GridTest {
     @Test
     public void testEqualsWidthFail() {
         board3 = new Grid(4, 10, 4);
-        assertFalse(board1.equals(board2));
+        assertFalse(board1.equals(board3));
     }
 
     @Test
     public void testEqualsTotalbombFail() {
         board3 = new Grid(4, 4, 9);
-        assertFalse(board1.equals(board2));
+        assertFalse(board1.equals(board3));
     }
-
 
 }

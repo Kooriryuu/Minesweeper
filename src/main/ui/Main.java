@@ -1,11 +1,14 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//handles inputs
+//handles inputs includes the main method of the class
 
 public class Main {
 
@@ -20,13 +23,14 @@ public class Main {
         initiate(g);
     }
 
+    @SuppressWarnings("methodlength")
     //EFFECTS: Change any settings or start a new game.
     public static void initiate(Game g) {
         boolean ongoing = true;
         Scanner input = new Scanner(System.in);
         while (ongoing) {
             System.out.println("What would you like to do? start to start a game, dim to change dimensions"
-                    + ", bombs to change total number of bombs, and end to quit.");
+                    + ", bombs to change total number of bombs, load to resume, and end to quit.");
             String move = input.next();
             if (move.equals("start")) {
                 gameStart(g);
@@ -36,6 +40,8 @@ public class Main {
                 ongoing = false;
             } else if (move.equals("bombs")) {
                 changeBomb(g);
+            } else if (move.equals("load")) {
+                resume(g);
             } else {
                 System.out.println("Invalid option, try again.");
             }
@@ -54,6 +60,24 @@ public class Main {
             return;
         }
         g.gameInitialization(loc);
+        display(false, g);
+        int state = game(g);
+        if (state == 1) {
+            g.endTimer();
+            addTime(g);
+        }
+    }
+
+    //REQUIRES: A non-empty file
+    //EFFECTS: Resumes a saved game
+    private static void resume(Game g) {
+        JsonReader reader = new JsonReader("./data/standardGameSave.json");
+        try {
+            g = reader.read();
+            g.startTimer();
+        } catch (IOException e) {
+            System.out.println("file doesn't exist");
+        }
         display(false, g);
         int state = game(g);
         if (state == 1) {
@@ -81,7 +105,7 @@ public class Main {
             System.out.println("mid for middle click, open to open a cell, flag to flag a cell, quit to exit");
             String choice = inp.nextLine();
             if (choice.equals("quit")) {
-                System.out.println("Exiting this game...");
+                save(g);
                 return -1;
             }
             try {
@@ -98,6 +122,25 @@ public class Main {
             }
         }
         return -1;
+    }
+
+    //EFFECTS: Writes game to file
+    private static void save(Game g) {
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Would you like to save?");
+        String choice = inp.nextLine();
+        if ("Y".equalsIgnoreCase(choice)) {
+            JsonWriter writer = new JsonWriter("./data/standardGameSave.json");
+            try {
+                writer.open();
+                writer.write(g);
+                writer.close();
+                System.out.println("saved!");
+            } catch (IOException e) {
+                System.out.println("unable to save file");
+            }
+        }
+        System.out.println("Exiting this game...");
     }
 
     //EFFECTS: Initiate the appropriate move at the appropriate cell

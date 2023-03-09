@@ -2,9 +2,17 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
-public class Grid {
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.JsonWriter;
+import persistence.Writable;
+
+//Represents the state of the board
+
+public class Grid implements Writable {
     private List<Cell> board;
     private int height;
     private int width;
@@ -176,6 +184,12 @@ public class Grid {
         return this.width;
     }
 
+    //MODIFIES: This
+    //EFFECTS: set the board
+    public void setBoard(List<Cell> b) {
+        board = b;
+        setAround();
+    }
 
     //EFFECTS: get the board
     public List<Cell> getBoard() {
@@ -191,5 +205,49 @@ public class Grid {
     //EFFECTS: returns the cell at given location
     public Cell getCell(int loc) {
         return board.get(loc);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray b = new JSONArray();
+        for (Cell c: board) {
+            b.put(c.toJson());
+        }
+        json.put("board", b);
+        json.put("height", height);
+        json.put("width", width);
+        json.put("totalBombs", totalBombs);
+        return json;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Grid grid = (Grid) o;
+        for (int i = 0; i < board.size(); i++) {
+            if (!grid.getCell(i).equals(getCell(i))) {
+                System.out.println(grid.getCell(i).isFlagged());
+                System.out.println(getCell(i).isFlagged());
+                System.out.println(grid.getCell(i).isOpen());
+                System.out.println(getCell(i).isOpen());
+                System.out.println(grid.getCell(i).isBomb());
+                System.out.println(getCell(i).isBomb());
+                System.out.println(grid.getCell(i).getNumBombs());
+                System.out.println(getCell(i).getNumBombs());
+                return false;
+            }
+        }
+        return height == grid.height && width == grid.width && totalBombs == grid.totalBombs;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(board, height, width, totalBombs);
     }
 }

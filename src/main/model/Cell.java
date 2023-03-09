@@ -1,9 +1,13 @@
 package model;
 
-
+import org.json.JSONObject;
+import persistence.Writable;
 import java.util.List;
+import java.util.Objects;
 
-public class Cell {
+//Represents a minesweeper cell
+
+public class Cell implements Writable {
 
     private int numNearbyBombs;
     private boolean flagged;
@@ -81,5 +85,32 @@ public class Cell {
     //EFFECT: get the cells around this cell.
     public List<Cell> getSurrounding() {
         return this.aroundThis;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("flagged", flagged);
+        json.put("open", open);
+        json.put("isBomb", isBomb);
+        return json;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Cell cell = (Cell) o;
+        return numNearbyBombs == cell.numNearbyBombs && isFlagged() == cell.isFlagged()
+                && isOpen() == cell.isOpen() && isBomb() == cell.isBomb();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numNearbyBombs, isFlagged(), isOpen(), isBomb());
     }
 }

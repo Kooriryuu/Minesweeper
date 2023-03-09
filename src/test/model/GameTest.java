@@ -3,6 +3,8 @@ package model;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -23,6 +25,7 @@ public class GameTest {
         assertEquals(5, g.getBombNum());
         assertEquals(0, g.getStart());
         assertEquals(0, g.getEnd());
+        assertEquals(16, g.getGrid().getBoard().size());
     }
 
     @Test
@@ -215,26 +218,57 @@ public class GameTest {
     }
 
     @Test
+    public void testSetName() {
+        g.setPlayer("hello");
+        assertEquals("hello",g.getCurrentPlayer());
+    }
+
+    @Test
     public void testNoAddTime() {
         g.gameInitialization(9);
         g.addTime("no");
-        assertEquals(0, g.getScores().size());
+        assertEquals(0, g.getLeaderboard().size());
         assertEquals(0, g.getEnd());
         assertEquals(0, g.getStart());
     }
 
     @Test
     public void testAddTime() {
+        g.setPlayer("p");
         g.gameInitialization(10);
         long begin = g.getStart();
         g.endTimer();
         long end = g.getEnd();
         g.addTime("y");
-        List<Score> scoreList = g.getScores();
+        Map<String, Player> scoreList = g.getLeaderboard();
+        String player = g.getCurrentPlayer();
+        String m = String.valueOf(g.getHeight()) + "x" + String.valueOf(g.getWidth());
         assertEquals(1, scoreList.size());
         assertEquals(0, g.getEnd());
         assertEquals(0, g.getStart());
-        assertTrue(scoreList.get(0).equals(new Score(end - begin, 4, 4)));
+        assertEquals(end - begin, scoreList.get(player).getTimesForMap(m).get(0));
+        assertEquals(1, scoreList.get(player).getTimesForMap(m).size());
+    }
+
+    @Test
+    public void testAddTimeTwice() {
+        g.setPlayer("p");
+        g.gameInitialization(10);
+        g.endTimer();
+        g.addTime("y");
+        g.gameInitialization(10);
+        long begin = g.getStart();
+        g.endTimer();
+        long end = g.getEnd();
+        g.addTime("Y");
+        Map<String, Player> scoreList = g.getLeaderboard();
+        String player = g.getCurrentPlayer();
+        String m = String.valueOf(g.getHeight()) + "x" + String.valueOf(g.getWidth());
+        assertEquals(1, scoreList.size());
+        assertEquals(0, g.getEnd());
+        assertEquals(0, g.getStart());
+        assertEquals(end - begin, scoreList.get(player).getTimesForMap(m).get(1));
+        assertEquals(2, scoreList.get(player).getTimesForMap(m).size());
     }
 
 

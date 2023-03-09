@@ -5,12 +5,18 @@ import model.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//handles inputs
+
 public class Main {
 
 
     //EFFECTS: Initiate the program, making a Game
     public static void main(String[] args) {
         Game g = new Game();
+        System.out.println("What's your name?");
+        Scanner inp = new Scanner(System.in);
+        String name = inp.next();
+        g.setPlayer(name);
         initiate(g);
     }
 

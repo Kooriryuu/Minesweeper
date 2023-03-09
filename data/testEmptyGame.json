@@ -1,0 +1,95 @@
+{
+    "playerList": {},
+    "width": 4,
+    "deltaT": 0,
+    "board": {
+        "totalBombs": 5,
+        "width": 4,
+        "board": [
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            }
+        ],
+        "height": 4
+    },
+    "bombNum": 5,
+    "height": 4,
+    "player": ""
+}

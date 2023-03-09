@@ -29,3 +29,5 @@ As a user, I want to be able to:
 - be able to end the game on fail. 
 - be able to add cells to my grid to change the dimensions
 - be able to add my times to scores
+- be able to stop and save my minesweeper game 
+- be able to resume my last minesweeper game

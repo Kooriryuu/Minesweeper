@@ -49,7 +49,46 @@ public class PlayerTest {
     }
 
     @Test
-    public void testGetSCoreNoMap() {
+    public void testGetScoreNoMap() {
         assertEquals(new ArrayList<Long>(), p1.getTimesForMap("H"));
+    }
+
+    @Test
+    public void testHashCode() {
+        Player p3 = new Player("a");
+        assertTrue(p1.hashCode() == p3.hashCode());
+    }
+
+    @Test
+    public void testHashCodeFail() {
+        Integer i = 1;
+        assertFalse(p1.hashCode() == i.hashCode());
+    }
+
+    @Test
+    public void testEqualsSame() {
+        assertEquals(p1, p1);
+    }
+
+    @Test
+    public void testEqualsDiffType() {
+        assertFalse(p1.equals(1));
+    }
+
+    @Test
+    public void testEqualsNull() {
+        assertFalse(p1.equals(null));
+    }
+
+    @Test
+    public void testEqualsNameFail() {
+        assertFalse(p1.equals(p2));
+    }
+
+    @Test
+    public void testEqualsScoreFail() {
+        Player p3 = new Player("a");
+        p3.addScore(3,3,10);
+        assertFalse(p1.equals(p3));
     }
 }

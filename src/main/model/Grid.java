@@ -232,14 +232,6 @@ public class Grid implements Writable {
         Grid grid = (Grid) o;
         for (int i = 0; i < board.size(); i++) {
             if (!grid.getCell(i).equals(getCell(i))) {
-                System.out.println(grid.getCell(i).isFlagged());
-                System.out.println(getCell(i).isFlagged());
-                System.out.println(grid.getCell(i).isOpen());
-                System.out.println(getCell(i).isOpen());
-                System.out.println(grid.getCell(i).isBomb());
-                System.out.println(getCell(i).isBomb());
-                System.out.println(grid.getCell(i).getNumBombs());
-                System.out.println(getCell(i).getNumBombs());
                 return false;
             }
         }

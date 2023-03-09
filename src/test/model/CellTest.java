@@ -108,4 +108,56 @@ class CellTest {
         assertFalse(c1.isFlagged());
     }
 
+    @Test
+    public void testEquals() {
+        assertEquals(c1, c2);
+    }
+
+    @Test
+    public void testEqualsSame() {
+        assertEquals(c1, c1);
+    }
+
+    @Test
+    public void testEqualsDiff() {
+        assertFalse(c1.equals(1));
+    }
+
+    @Test
+    public void testEqualNull() {
+        assertFalse(c1.equals(null));
+    }
+
+    @Test
+    public void testEqualsFlagFail() {
+        c2.toggleFlag();
+        assertFalse(c1.equals(c2));
+    }
+
+    @Test
+    public void testEqualsOpenFail() {
+        c2.openCell();
+        assertFalse(c1.equals(c2));
+    }
+
+    @Test
+    public void testEqualsBombFail() {
+        c2.makeBomb();
+        assertFalse(c1.equals(c2));
+    }
+
+    @Test
+    public void testEqualsNumNearbyFail() {
+        List<Cell> around = new ArrayList<>();
+        around.add(c2);
+        around.add(c3);
+        around.add(c4);
+        c1.setSurrounding(around);
+        for (Cell c: around) {
+            c.makeBomb();
+        }
+        c1.findNearbyBombs();
+        assertFalse(c1.equals(c2));
+
+    }
 }

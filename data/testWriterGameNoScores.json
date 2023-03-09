@@ -1,7 +1,7 @@
 {
     "playerList": {},
     "width": 4,
-    "deltaT": 43000,
+    "deltaT": 85000,
     "board": {
         "totalBombs": 5,
         "width": 4,
@@ -28,6 +28,26 @@
             },
             {
                 "flagged": false,
+                "isBomb": true,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
                 "isBomb": false,
                 "open": false
             },
@@ -53,37 +73,17 @@
             },
             {
                 "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
-                "open": false
-            },
-            {
-                "flagged": false,
                 "isBomb": true,
                 "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": true,
                 "open": false
             }
         ],

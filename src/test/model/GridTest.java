@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class GridTest {
-    private Grid board1, board2;
+    private Grid board1, board2, board3;
 
 
     @BeforeEach
@@ -299,6 +299,65 @@ public class GridTest {
     public void testNotWin() {
         board1.generate(8);
         assertFalse(board1.winCheck());
+    }
+
+    @Test
+    public void testHashCode() {
+        board3 = new Grid(4, 4, 4);
+        assertTrue(board1.hashCode() == board3.hashCode());
+    }
+
+    @Test
+    public void testHashCodeFail() {
+        Integer i = 1;
+        assertFalse(board1.hashCode() == i.hashCode());
+    }
+
+    @Test
+    public void testEqualsSame() {
+        assertEquals(board1, board1);
+    }
+
+    @Test
+    public void testEqualsNull() {
+        assertFalse(board1.equals(null));
+    }
+
+    @Test
+    public void testEqualsDiffClass() {
+        Integer i = 1;
+        assertFalse(board1.equals(i));
+    }
+
+    @Test
+    public void testEqualsBoardFail() {
+        board3 = new Grid(4, 4, 4);
+        board3.generate(2);
+        assertFalse(board1.equals(board2));
+    }
+
+    @Test
+    public void testEqualsHeightFail() {
+        board3 = new Grid(5, 4, 4);
+        assertFalse(board1.equals(board2));
+    }
+
+    @Test
+    public void testEqualsSameDiffObj() {
+        board3 = new Grid(4, 4, 4);
+        assertEquals(board1, board3);
+    }
+
+    @Test
+    public void testEqualsWidthFail() {
+        board3 = new Grid(4, 10, 4);
+        assertFalse(board1.equals(board2));
+    }
+
+    @Test
+    public void testEqualsTotalbombFail() {
+        board3 = new Grid(4, 4, 9);
+        assertFalse(board1.equals(board2));
     }
 
 

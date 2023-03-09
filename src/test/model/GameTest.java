@@ -271,7 +271,81 @@ public class GameTest {
         assertEquals(2, scoreList.get(player).getTimesForMap(m).size());
     }
 
+    @Test
+    public void testGetDeltaT() {
+        assertEquals(0, g.getDeltaT());
+    }
+
+    @Test
+    public void testHashCodeSame() {
+        Game g2 = new Game();
+        assertTrue(g.equals(g2) && g2.equals(g));
+        assertTrue(g.hashCode() == g2.hashCode());
+    }
+
+    @Test
+    public void testHashCodeDiff() {
+        Integer i = 1;
+        assertNotEquals(g, i);
+        assertFalse(i.hashCode() == g.hashCode());
+    }
+
+    @Test
+    public void testEqualsSameObj() {
+        assertEquals(g, g);
+    }
+
+    @Test
+    public void testEqualsDiffObj() {
+        assertFalse(g.equals(1));
+    }
+
+    @Test
+    public void testEqualsNull() {
+        assertFalse(g.equals(null));
+    }
+
+    @Test
+    public void testEqualsHeightFail(){
+        Game g2 = new Game();
+        g2.changeHeight(8);
+        assertFalse(g.equals(g2));
+    }
+
+    @Test
+    public void testEqualsWidthFail(){
+        Game g2 = new Game();
+        g2.changeWidth(8);
+        assertFalse(g.equals(g2));
+    }
+
+    @Test
+    public void testEqualsBombNumFail(){
+        Game g2 = new Game();
+        g2.changeBombNum(8);
+        assertFalse(g.equals(g2));
+    }
+
+    @Test
+    public void testEqualsBoardFail(){
+        Game g2 = new Game();
+        g2.gameInitialization(8);
+        assertFalse(g.equals(g2));
+    }
+
+    @Test
+    public void testEqualsDeltaFail(){
+        Game g2 = new Game();
+        g2.setDeltaT(8);
+        assertFalse(g.equals(g2));
+    }
 
 
-
+    @Test
+    public void testEqulsPlayerListFail(){
+        Game g2 = new Game();
+        g2.setPlayer("h");
+        g2.addTime("Y");
+        assertFalse(g.equals(g2));
+    }
 }

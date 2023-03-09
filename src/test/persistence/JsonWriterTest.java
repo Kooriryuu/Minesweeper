@@ -42,6 +42,7 @@ public class JsonWriterTest {
         try {
             Game g = new Game();
             g.gameInitialization(6);
+            g.getGrid().getCell(10).toggleFlag();
             g.endTimer();
             g.setDeltaT(g.getEnd() - g.getStart());
             JsonWriter writer = new JsonWriter("./data/testWriterGameNoScores.json");

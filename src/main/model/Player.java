@@ -25,9 +25,13 @@ public class Player implements Writable {
     //MODIFIES: This
     //EFFECTS: Adds a score to the player
     public void addScore(int h, int w, long time) {
+        System.out.println(scores);
+        System.out.println(scores.keySet());
         String k = String.valueOf(h) + "x" + String.valueOf(w);
+        System.out.println(k);
         if (scores.containsKey(k)) {
             scores.get(k).add(time);
+            System.out.println(scores.get(k));
         } else {
             List<Long> temp = new ArrayList<>();
             temp.add(time);

@@ -2,8 +2,8 @@
     "playerList": {"": {
         "scores": [{
             "times": [
-                244200,
-                45800
+                311600,
+                110900
             ],
             "dim": "4x4"
         }],
@@ -17,7 +17,27 @@
         "board": [
             {
                 "flagged": false,
-                "isBomb": true,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
                 "open": false
             },
             {
@@ -42,22 +62,12 @@
             },
             {
                 "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
                 "open": false
             },
             {
@@ -68,16 +78,11 @@
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
+                "open": false
             },
             {
                 "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
             },
             {
@@ -88,12 +93,7 @@
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
+                "open": false
             }
         ],
         "height": 4

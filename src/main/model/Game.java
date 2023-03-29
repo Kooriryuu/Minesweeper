@@ -90,7 +90,9 @@ public class Game implements Writable {
     //MODIFIES: Cell
     //EFFECTS: Open cell at location, and surround cells if initial cell has no bombs around it
     private boolean standardOpen(int loc) {
-        return !board.openFirst(loc);
+        boolean b = !board.openFirst(loc);
+        System.out.println(b);
+        return b;
     }
 
     //EFFECTS: Checks if the game is won
@@ -164,8 +166,10 @@ public class Game implements Writable {
     //EFFECTS: Sets the current player
     public void setPlayer(String name) {
         this.name = name;
-        Player p = new Player(name);
-        playerList.put(name, p);
+        if (!playerList.containsKey(name)) {
+            Player p = new Player(name);
+            playerList.put(name, p);
+        }
     }
 
     //EFFECTS: Gets the current player
@@ -243,12 +247,11 @@ public class Game implements Writable {
         }
         Game game = (Game) o;
         return height == game.height && width == game.width && bombNum == game.bombNum && deltaT == game.deltaT
-                && board.equals(game.board) && Objects.equals(playerList, game.playerList)
-                && Objects.equals(name, game.name);
+                && board.equals(game.board) && Objects.equals(playerList, game.playerList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(board, height, width, bombNum, playerList, name, deltaT);
+        return Objects.hash(board, height, width, bombNum, playerList, deltaT);
     }
 }

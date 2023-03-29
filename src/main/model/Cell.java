@@ -51,7 +51,9 @@ public class Cell implements Writable {
     //MODIFIES: This
     //EFFECT: Opens the cell
     public void openCell() {
-        this.open = true;
+        if (!flagged) {
+            this.open = true;
+        }
     }
 
     //MODIFIES: This

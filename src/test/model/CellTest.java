@@ -95,6 +95,14 @@ class CellTest {
     }
 
     @Test
+    public void testOpenFlagged(){
+        c1.toggleFlag();
+        c1.openCell();
+        assertFalse(c1.isOpen());
+        assertTrue(c1.isFlagged());
+    }
+
+    @Test
     public void testToggleFlagOnce() {
         c1.toggleFlag();
         assertTrue(c1.isFlagged());
@@ -104,6 +112,14 @@ class CellTest {
     public void testToggleFlagTwice() {
         c1.toggleFlag();
         assertTrue(c1.isFlagged());
+        c1.toggleFlag();
+        assertFalse(c1.isFlagged());
+    }
+
+    @Test
+    public void testToggleFlagOpen() {
+        c1.openCell();
+        assertTrue(c1.isOpen());
         c1.toggleFlag();
         assertFalse(c1.isFlagged());
     }

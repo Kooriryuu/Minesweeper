@@ -1,17 +1,19 @@
 {
-    "playerList": {"o": {
-        "scores": [],
-        "username": "o"
-    }},
+    "playerList": {},
     "width": 4,
-    "deltaT": -485274363656500,
+    "deltaT": 0,
     "board": {
         "totalBombs": 5,
         "width": 4,
         "board": [
             {
                 "flagged": false,
-                "isBomb": true,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
                 "open": false
             },
             {
@@ -21,68 +23,63 @@
             },
             {
                 "flagged": false,
-                "isBomb": true,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
+                "isBomb": false,
                 "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
                 "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": true
-            },
-            {
-                "flagged": false,
-                "isBomb": true,
                 "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
+                "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
+                "open": false
             },
             {
                 "flagged": false,
                 "isBomb": false,
-                "open": true
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": false
             },
             {
                 "flagged": false,
@@ -94,5 +91,5 @@
     },
     "bombNum": 5,
     "height": 4,
-    "player": "o"
+    "player": ""
 }

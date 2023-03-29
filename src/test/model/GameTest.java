@@ -355,4 +355,10 @@ public class GameTest {
         g2.setPlayer("h");
         assertFalse(g.equals(g2));
     }
+
+    @Test
+    public void testBeginTimer() {
+        g.startTimer();
+        assertTrue(!(g.getStart() == 0));
+    }
 }

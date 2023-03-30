@@ -23,11 +23,19 @@ I enjoy playing games and my original idea probably wasn't feasible to accomplis
 ## User stories
 As a user, I want to be able to:
 - be able to flag a bomb.
-- be able to see my best times.
-- be able to use the middle click function *that for some reason isn't always implemented*.
-- save my scores.
+- be able to see my times.
+- be able to see times for certain map sizes
+- be able to use the middle click function (known as chording).
 - be able to end the game on fail. 
 - be able to add cells to my grid to change the dimensions
 - be able to add my times to scores
 - be able to stop and save my minesweeper game 
 - be able to resume my last minesweeper game
+
+
+## Instructions for Grader
+- You can generate the first required action related to adding Xs to a Y by winning a game (after selecting play on the first menu) and choosing to add the time
+- You can generate the second required action related to adding Xs to a Y by going to leaderboard. Select an option from the dropdown menu to show scores for a specific map size
+- You can locate the visual component of my application by selecting play. From there, you can select a cell. The labels will update with each click
+- You can save the state of my application by selecting the save button after selecting play. 
+- You can reload the state of my application by clicking load. This loads the saved board onto the screen. 

@@ -46,7 +46,7 @@ public class Leaderboard extends JPanel {
             Player p = lead.get(st);
             mapSizes.addAll(p.getScores().keySet());
         }
-        System.out.println(mapSizes);
+
         for (String st: mapSizes) {
             f.addItem(st);
         }

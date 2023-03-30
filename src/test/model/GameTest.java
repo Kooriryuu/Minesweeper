@@ -224,6 +224,15 @@ public class GameTest {
     }
 
     @Test
+    public void testSetSecondPlayer() {
+        g.setPlayer("f");
+        g.setPlayer("t");
+        g.setPlayer("f");
+        assertEquals(2, g.getLeaderboard().size());
+        assertEquals("f", g.getCurrentPlayer());
+    }
+
+    @Test
     public void testNoAddTime() {
         g.gameInitialization(9);
         g.addTime("no");

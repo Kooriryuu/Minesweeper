@@ -91,7 +91,6 @@ public class Game implements Writable {
     //EFFECTS: Open cell at location, and surround cells if initial cell has no bombs around it
     private boolean standardOpen(int loc) {
         boolean b = !board.openFirst(loc);
-        System.out.println(b);
         return b;
     }
 

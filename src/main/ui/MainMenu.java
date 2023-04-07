@@ -75,12 +75,10 @@ public class MainMenu extends JFrame implements ActionListener {
                 makeLeaderboard();
                 break;
             case "Quit":
-                //saveScores();
-                //System.out.println(current.getLeaderboard());
+                current.showEvents();
                 System.exit(0);
                 break;
         }
-        System.out.println(option);
     }
 
     //MODIFIES: MinesweeperBoard
@@ -125,6 +123,7 @@ public class MainMenu extends JFrame implements ActionListener {
     //EFFECTS: Return to the main menu
     private void backtrack(Component c) {
         layout.first(background);
+        current.setDeltaT(0);
         background.remove(c);
         background.repaint();
         background.revalidate();
@@ -134,7 +133,6 @@ public class MainMenu extends JFrame implements ActionListener {
     //EFFECTS: Creates a leaderboard display
     private void makeLeaderboard() {
         Leaderboard l = new Leaderboard(current);
-        System.out.println(current.getLeaderboard());
         JPanel lb = new JPanel();
         JButton ret = new JButton("Back");
         lb.add(l);
@@ -171,7 +169,6 @@ public class MainMenu extends JFrame implements ActionListener {
             writer.open();
             writer.write(g);
             writer.close();
-            System.out.println("saved!");
         } catch (IOException e) {
             System.out.println("unable to save file");
         }
@@ -231,6 +228,9 @@ public class MainMenu extends JFrame implements ActionListener {
         try {
             Game g = reader.read();
             g.setLeaderboard(current.getLeaderboard());
+            g.changeHeight(g.getGrid().getHeight());
+            g.changeWidth(g.getGrid().getWidth());
+            g.changeBombNum(g.getGrid().getTotalBombs());
             current = g;
         } catch (IOException e) {
             System.out.println("file doesn't exist");
@@ -306,4 +306,5 @@ public class MainMenu extends JFrame implements ActionListener {
         }
         throw new NumberFormatException();
     }
+
 }

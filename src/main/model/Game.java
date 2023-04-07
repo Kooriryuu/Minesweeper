@@ -18,6 +18,7 @@ public class Game implements Writable {
     private long end;
     private String name;
     private long deltaT;
+    private EventLog log;
 
     //MODIFIES: This
     //EFFECTS: Creates a game with no scores, no start time, and no end time.
@@ -31,6 +32,7 @@ public class Game implements Writable {
         deltaT = 0;
         board = new Grid(height, width, bombNum);
         name = "";
+        log = EventLog.getInstance();
     }
 
     //REQUIRES: A starting location
@@ -108,6 +110,7 @@ public class Game implements Writable {
     //MODIFIES: This
     //EFFECTS: Changes the height
     public void changeHeight(int h) {
+        log.logEvent(new Event("Changed height to " + Integer.toString(h)));
         height = h;
     }
 
@@ -125,6 +128,7 @@ public class Game implements Writable {
     //MODIFIES: This
     //EFFECTS: Changes the width
     public void changeWidth(int w) {
+        log.logEvent(new Event("Changed width to " + Integer.toString(w)));
         width = w;
     }
 
@@ -137,6 +141,7 @@ public class Game implements Writable {
     //MODIFIES: This
     //EFFECTS: Changes the number of bombs
     public void changeBombNum(int b) {
+        log.logEvent(new Event("Changed number of bombs to " + Integer.toString(b)));
         bombNum = b;
     }
 
@@ -194,6 +199,7 @@ public class Game implements Writable {
         if (s.toUpperCase().equals("Y")) {
             long totalTime = end - start + deltaT;
             Player p;
+            log.logEvent(new Event("Added a time for " + name));
             if (playerList.containsKey(name)) {
                 p = playerList.get(name);
             } else {
@@ -218,6 +224,12 @@ public class Game implements Writable {
         playerList = leaderboard;
     }
 
+    public void showEvents() {
+        for(Event e: log) {
+            System.out.println(e.toString());
+        }
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -231,6 +243,7 @@ public class Game implements Writable {
         }
         json.put("playerList", a);
         json.put("player", name);
+        endTimer();
         deltaT = end - start;
         json.put("deltaT", end - start);
         return json;

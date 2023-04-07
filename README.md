@@ -38,4 +38,21 @@ As a user, I want to be able to:
 - You can generate the second required action related to adding Xs to a Y by going to leaderboard. Select an option from the dropdown menu to show scores for a specific map size
 - You can locate the visual component of my application by selecting play. From there, you can select a cell. The labels will update with each click
 - You can save the state of my application by selecting the save button after selecting play. 
-- You can reload the state of my application by clicking load. This loads the saved board onto the screen. 
+- You can reload the state of my application by clicking load. This loads the saved board onto the screen.
+
+## Phase 4: Task 2 
+Fri Apr 07 16:19:05 PDT 2023
+
+Changed width to 5
+
+Fri Apr 07 16:19:05 PDT 2023
+
+Changed height to 5
+
+Fri Apr 07 16:19:05 PDT 2023
+
+Changed number of bombs to 10
+
+Fri Apr 07 16:19:52 PDT 2023
+
+Added a time for l

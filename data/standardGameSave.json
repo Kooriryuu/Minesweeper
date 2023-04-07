@@ -1,15 +1,99 @@
 {
-    "playerList": {},
-    "width": 4,
-    "deltaT": 0,
+    "playerList": {
+        "2": {
+            "scores": [{
+                "times": [24597654200],
+                "dim": "4x4"
+            }],
+            "username": "2"
+        },
+        "s": {
+            "scores": [{
+                "times": [-348003243582300],
+                "dim": "5x5"
+            }],
+            "username": "s"
+        },
+        "asdf": {
+            "scores": [{
+                "times": [7086779200],
+                "dim": "4x4"
+            }],
+            "username": "asdf"
+        },
+        "skjldfl": {
+            "scores": [{
+                "times": [19102450600],
+                "dim": "4x4"
+            }],
+            "username": "skjldfl"
+        },
+        "l": {
+            "scores": [
+                {
+                    "times": [
+                        12441780200,
+                        1225300,
+                        27380634300
+                    ],
+                    "dim": "4x4"
+                },
+                {
+                    "times": [
+                        -348490480262400,
+                        39390111800
+                    ],
+                    "dim": "5x5"
+                }
+            ],
+            "username": "l"
+        }
+    },
+    "width": 5,
+    "deltaT": 349536147246600,
     "board": {
         "totalBombs": 5,
         "width": 4,
         "board": [
             {
                 "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": true,
+                "open": false
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
             },
             {
                 "flagged": false,
@@ -19,6 +103,21 @@
             {
                 "flagged": false,
                 "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": false,
+                "open": true
+            },
+            {
+                "flagged": false,
+                "isBomb": true,
                 "open": false
             },
             {
@@ -28,68 +127,18 @@
             },
             {
                 "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
             },
             {
                 "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
-                "open": false
-            },
-            {
-                "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
             }
         ],
         "height": 4
     },
-    "bombNum": 5,
-    "height": 4,
-    "player": ""
+    "bombNum": 10,
+    "height": 5,
+    "player": "l"
 }

@@ -36,6 +36,7 @@ public class MinesweeperBoard extends JPanel implements ActionListener {
         }
         if (load) {
             update();
+            game.startTimer();
         }
     }
 
@@ -63,7 +64,7 @@ public class MinesweeperBoard extends JPanel implements ActionListener {
                     if (c instanceof BoardCell) {
                         BoardCell bc = (BoardCell) c;
                         String d = game.getChar(!cont, bc.getLoc() % gameWidth, bc.getLoc() / gameWidth);
-                        if (d.equals("□")) {
+                        if (!d.equals("□")) {
                             bc.setLabel(d);
                         } else {
                             bc.setLabel("");
@@ -83,6 +84,7 @@ public class MinesweeperBoard extends JPanel implements ActionListener {
         if (first && move.equals("open")) {
             game.gameInitialization(obj.getLoc());
             first = false;
+
         } else if (cont) {
             cont = game.chooseMove(move, obj.getLoc());
         }
@@ -124,7 +126,6 @@ public class MinesweeperBoard extends JPanel implements ActionListener {
             int result = JOptionPane.showConfirmDialog(null, s,
                     "Add Score", JOptionPane.OK_CANCEL_OPTION);
             if (result == JOptionPane.OK_OPTION) {
-                System.out.println(newName.getText());
                 game.setPlayer(newName.getText());
                 game.addTime("Y");
             }

@@ -44,9 +44,9 @@ public class JsonReader {
     private Game parseGame(JSONObject jsonObject) {
         Game g = new Game();
         g.setGrid(parseBoard(jsonObject.getJSONObject("board")));
-        g.changeWidth(jsonObject.getInt("width"));
-        g.changeHeight(jsonObject.getInt("height"));
-        g.changeBombNum(jsonObject.getInt("bombNum"));
+        //g.changeWidth(jsonObject.getInt("width"));
+        //g.changeHeight(jsonObject.getInt("height"));
+        //g.changeBombNum(jsonObject.getInt("bombNum"));
         g.setDeltaT(jsonObject.getLong("deltaT"));
         g.setPlayer(jsonObject.getString("player"));
         Map<String, Player> pl = new HashMap<>();

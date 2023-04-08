@@ -56,3 +56,25 @@ Changed number of bombs to 10
 Fri Apr 07 16:19:52 PDT 2023
 
 Added a time for l
+
+## Phase 4: Task 3
+
+If I were to refactor the project, I would likely change
+what I was actually storing in between programs. 
+I find that I'm likely saving more details than necessary. 
+If I were to change what information was stored, then I could likely
+change Game into a Singleton class. In that case, I would only save the
+board and leaderboard information. Then I would know
+that I was always changing the same instance and that I wasn't
+copying over the wrong values when trying to get the appropriate 
+parts from the stored Game. The downsides may include 
+include greater difficulty in trying to make temporary changes.
+
+
+I would also try to reduce the amount of associations there are in the UI classes. 
+Within my Leaderboard class, I don't actually need to store a reference to game since
+the class doesn't ever change anything to do with the game.
+
+There are chances are that some of the functions in game could
+be moved to grid. Then game could lose it's dependencies on cell
+which could improve bug hunting if that occured. 

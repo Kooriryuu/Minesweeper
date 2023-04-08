@@ -8,10 +8,19 @@
             "username": "2"
         },
         "s": {
-            "scores": [{
-                "times": [-348003243582300],
-                "dim": "5x5"
-            }],
+            "scores": [
+                {
+                    "times": [
+                        1261800,
+                        11740775800
+                    ],
+                    "dim": "4x4"
+                },
+                {
+                    "times": [-348003243582300],
+                    "dim": "5x5"
+                }
+            ],
             "username": "s"
         },
         "asdf": {
@@ -34,9 +43,18 @@
                     "times": [
                         12441780200,
                         1225300,
-                        27380634300
+                        27380634300,
+                        14719540600,
+                        6605436200
                     ],
                     "dim": "4x4"
+                },
+                {
+                    "times": [
+                        374372149688600,
+                        31860703800
+                    ],
+                    "dim": "4x5"
                 },
                 {
                     "times": [
@@ -49,8 +67,8 @@
             "username": "l"
         }
     },
-    "width": 5,
-    "deltaT": 349536147246600,
+    "width": 4,
+    "deltaT": 1729026400,
     "board": {
         "totalBombs": 5,
         "width": 4,
@@ -77,7 +95,7 @@
             },
             {
                 "flagged": false,
-                "isBomb": true,
+                "isBomb": false,
                 "open": false
             },
             {
@@ -97,7 +115,7 @@
             },
             {
                 "flagged": false,
-                "isBomb": false,
+                "isBomb": true,
                 "open": false
             },
             {
@@ -138,7 +156,7 @@
         ],
         "height": 4
     },
-    "bombNum": 10,
-    "height": 5,
-    "player": "l"
+    "bombNum": 5,
+    "height": 4,
+    "player": "s"
 }

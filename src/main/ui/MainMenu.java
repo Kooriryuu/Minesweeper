@@ -101,7 +101,7 @@ public class MainMenu extends JFrame implements ActionListener {
             }
         } else if (sel.equals("return")) {
             backtrack(scroll);
-            saveScores();
+            //saveScores();
         }
     }
 
@@ -110,6 +110,9 @@ public class MainMenu extends JFrame implements ActionListener {
     public void timerAction(ActionEvent ae) {
         long cur = System.nanoTime();
         if (current.getStart() != 0) {
+            System.out.println(cur);
+            System.out.println(current.getStart());
+            System.out.println(current.getDeltaT());
             Long t = (current.getDeltaT() + (cur - current.getStart())) / 1000000000;
             timeText.setText(Long.toString(t));
             timeText.validate();

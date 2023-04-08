@@ -225,7 +225,7 @@ public class Game implements Writable {
     }
 
     public void showEvents() {
-        for(Event e: log) {
+        for (Event e: log) {
             System.out.println(e.toString());
         }
     }
